@@ -19,6 +19,7 @@ const pageTitle = "Blog";
                         pubDate={
                             post.frontmatter.pubDate.toString().split("T")[0]
                         }
+                        tags={post.frontmatter.tags}
                     />
                 </li>
             ))
