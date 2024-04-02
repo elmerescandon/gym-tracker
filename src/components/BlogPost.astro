@@ -1,12 +1,22 @@
 ---
-const {url, title, author, pubDate} = Astro.props;
+const {url, title, author, pubDate, tags} = Astro.props;
 ---
 
-<a href={url} class="card">
+<div class="card">
     <h2>{title}</h2>
     <p>Written by: {author}</p>
     <p>Published on: {pubDate}</p>
-</a>
+    <a class="blog-link" href={url}>Go to blog</a>
+    <div>
+        {
+            (tags as string[]).map((tag: string) => (
+                <a class="tag" href={`/tags/${tag}`}>
+                    {tag}
+                </a>
+            ))
+        }
+    </div>
+</div>
 
 <style>
     .card {
@@ -20,7 +30,26 @@ const {url, title, author, pubDate} = Astro.props;
         transition: background-color 0.3s ease;
     }
 
-    .card:hover {
-        background-color: #eaeaea;
+    .tag {
+        display: inline-block;
+        padding: 5px 10px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        border-radius: 5px;
+        background-color: #f0f0f0;
+        color: #333;
+    }
+
+    .blog-link {
+        display: inline-block;
+        padding: 5px 10px;
+        margin: 20px 0;
+        border-radius: 5px;
+        background-color: black;
+        color: white;
+        text-decoration: none;
+    }
+    .blog-link:hover {
+        background-color: #333;
     }
 </style>
