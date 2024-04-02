@@ -7,18 +7,22 @@ const {url, title, author, pubDate, tags} = Astro.props;
     <p>Written by: {author}</p>
     <p>Published on: {pubDate}</p>
     <a class="blog-link" href={url}>Go to blog</a>
-    <!-- <div>
+    <div class="tags">
         {
-            (tags as string[]).map((tag: string) => (
+            (tags as string[]).map((tag) => (
                 <a class="tag" href={`/tags/${tag}`}>
                     {tag}
                 </a>
             ))
         }
-    </div> -->
+    </div>
 </div>
 
 <style>
+    a {
+        color: #00539f;
+    }
+
     .card {
         display: block;
         padding: 10px;
@@ -30,20 +34,10 @@ const {url, title, author, pubDate, tags} = Astro.props;
         transition: background-color 0.3s ease;
     }
 
-    .tag {
-        display: inline-block;
-        padding: 5px 10px;
-        margin-right: 5px;
-        margin-bottom: 5px;
-        border-radius: 5px;
-        background-color: #f0f0f0;
-        color: #333;
-    }
-
     .blog-link {
         display: inline-block;
-        padding: 5px 10px;
-        margin: 20px 0;
+        padding: 0.5em 1em;
+        margin: 0.25em;
         border-radius: 5px;
         background-color: black;
         color: white;
@@ -51,5 +45,23 @@ const {url, title, author, pubDate, tags} = Astro.props;
     }
     .blog-link:hover {
         background-color: #333;
+    }
+
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .tag {
+        margin: 0.25em;
+        border: dotted 1px #a1a1a1;
+        border-radius: 0.5em;
+        padding: 0.5em 1em;
+        font-size: 1.15em;
+        background-color: #f8fcfd;
+    }
+
+    .tag:hover {
+        background-color: #e8f4f7;
     }
 </style>
