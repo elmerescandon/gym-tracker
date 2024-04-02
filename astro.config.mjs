@@ -1,6 +1,9 @@
-import {defineConfig} from "astro/config";
+import { defineConfig } from "astro/config";
+
+import preact from "@astrojs/preact";
 
 // https://astro.build/config
 export default defineConfig({
-    site: "https://gym-tracker-uwuteam.netlify.app",
+  site: "https://gym-tracker-uwuteam.netlify.app",
+  integrations: [preact()]
 });
