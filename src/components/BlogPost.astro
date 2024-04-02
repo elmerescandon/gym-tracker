@@ -7,7 +7,7 @@ const {url, title, author, pubDate, tags} = Astro.props;
     <p>Written by: {author}</p>
     <p>Published on: {pubDate}</p>
     <a class="blog-link" href={url}>Go to blog</a>
-    <div>
+    <!-- <div>
         {
             (tags as string[]).map((tag: string) => (
                 <a class="tag" href={`/tags/${tag}`}>
@@ -15,7 +15,7 @@ const {url, title, author, pubDate, tags} = Astro.props;
                 </a>
             ))
         }
-    </div>
+    </div> -->
 </div>
 
 <style>
